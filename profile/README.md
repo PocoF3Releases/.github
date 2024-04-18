@@ -17,7 +17,6 @@ Currently, bringup for trees is done for EvolutionX project, please respectfully
 * Xiaomi Parts (DeviceSettings) with MiSound, HBM, DC Dimming, Per-app refresh rate, Clear Speaker, Thermal Profiles via Mi_thermald + Touch Profiles for gaming and benchmarking, High Touch Polling rate support | Also adapted for A14 QPR2
 * Stock Miui Dolby Engine prebuilts with custom DaxUI and Service
 * Dolby Engine works via Speakers, Bluetooth, Analog Headphones and DAC.
-* Xiaomi VibratorFeature Support
 * More...
 
 ## Telegram Device Group:
