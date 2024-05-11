@@ -10,8 +10,8 @@
 * [Miui/Leica Camera](https://gitlab.com/johnmart19/vendor_xiaomi_camera)
 
 ## Side Note
-Currently, bringup for trees is done for EvolutionX project, please respectfully adapt for the project that you are planning to use.
-* For Miui Camera need to build Jemalloc Build with included fixes for Kona devices to do not crash system.
+Currently, bringup for trees is done for Evolution XYZ project, please respectfully adapt for the project that you are planning to use.
+* For Miui Camera need support of MALLOC_SVELTE_FOR_LIBC32 or to build Jemalloc Build with included fixes for Kona devices to do not crash system.
 
 ## Included:
 * Xiaomi Parts (DeviceSettings) with MiSound, HBM, DC Dimming, Per-app refresh rate, Clear Speaker, Thermal Profiles via Mi_thermald + Touch Profiles for gaming and benchmarking, High Touch Polling rate support | Also adapted for A14 QPR2
