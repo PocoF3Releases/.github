@@ -8,6 +8,14 @@
 
 ## Additionally
 * [Miui/Leica Camera](https://gitlab.com/johnmart19/vendor_xiaomi_camera)
+* [Xiaomi Parts / devicesettings strings](https://github.com/PocoF3Releases/packages_resources_devicesettings)
+
+## Android 15 Related Repos:
+* [Camera-related Framworks/base changes](https://github.com/PocoF3Releases/frameworks_base)
+* [Camera-related system/core changes](https://github.com/PocoF3Releases/system_core)
+* [Camera-related vendor/lineage changes](https://github.com/PocoF3Releases/vendor_lineage)
+* [Dolby Engine and Camera-related framworks/av changes](https://github.com/PocoF3Releases/frameworks_av)
+* [WFD and Camera-related frameworks/native changes](https://github.com/PocoF3Releases/frameworks_native)
 
 ## Included:
 * Xiaomi Parts (DeviceSettings) with MiSound, HBM, DC Dimming, Per-app refresh rate, Clear Speaker, Thermal Profiles via Mi_thermald + Touch Profiles for gaming and benchmarking, High Touch Polling rate support | Also adapted for A14 QPR3 & A15 (Beta)
