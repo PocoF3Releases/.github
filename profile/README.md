@@ -7,7 +7,7 @@
 * [sm8250-common Vendor Tree](https://github.com/PocoF3Releases/vendor_xiaomi_sm8250-common)
 
 ## Additionally
-* [Miui/Leica Camera](https://gitlab.com/johnmart19/vendor_xiaomi_camera)
+* [Miui/Leica Camera](https://github.com/PocoF3Releases/device_xiaomi_camera)
 * [Xiaomi Parts / devicesettings strings](https://github.com/PocoF3Releases/packages_resources_devicesettings)
 
 ## Android 15 Related Repos:
