@@ -5,6 +5,7 @@
 * [Alioth Vendor Tree](https://github.com/PocoF3Releases/vendor_xiaomi_alioth)
 * [sm8250-common Device Tree](https://github.com/PocoF3Releases/device_xiaomi_sm8250-common)
 * [sm8250-common Vendor Tree](https://github.com/PocoF3Releases/vendor_xiaomi_sm8250-common)
+* [Redline Kernel (Can use another one also, but pick HBM, DC Dimming and other missing changes)](https://github.com/PocoF3Releases/kernel_xiaomi_sm8250)
 
 ## Additionally
 * [Miui/Leica Camera](https://github.com/PocoF3Releases/device_xiaomi_camera)
