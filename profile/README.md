@@ -13,7 +13,7 @@
 * [Xiaomi Parts / devicesettings strings](https://github.com/PocoF3Releases/packages_resources_devicesettings)
 
 ## Included:
-* Xiaomi Parts (DeviceSettings) with MiSound, HBM, DC Dimming, Per-app refresh rate, Clear Speaker, Thermal Profiles via Mi_thermald + Touch Profiles for gaming and benchmarking, High Touch Polling rate support | Also adapted for A14 QPR3 & A15 (Beta)
+* Xiaomi Parts (DeviceSettings) with MiSound, HBM, DC Dimming, Per-app refresh rate, Clear Speaker, Thermal Profiles via Mi_thermald + Touch Profiles for gaming and benchmarking, High Touch Polling rate support
 * Stock Miui Dolby Engine prebuilts with custom DaxUI and Service (Currently using hardware/xiaomi impl)
 * Dolby Engine works via Speakers, Bluetooth, Analog Headphones and DAC.
 * More...
