@@ -17,7 +17,7 @@ Device sources and hardware integrations for **POCO F3 / Mi 11X (alioth)**, powe
 
 ## Repository directory
 
-Checked against the public organization inventory on **24 September 2026**: **18 repositories**. Branches below are repository defaults, not a substitute for a matching ROM manifest. The vendor camera repository is hosted separately on GitLab.
+The sources are grouped by their role in the ROM. Branches below are repository defaults; use your ROM manifest to select compatible revisions. Required camera prebuilts are hosted on GitLab.
 
 ### Required device, camera and kernel sources
 
@@ -41,7 +41,7 @@ Checked against the public organization inventory on **24 September 2026**: **18
 
 | Repository | Purpose | Default branch |
 | --- | --- | --- |
-| [frameworks_av](https://github.com/PocoF3Releases/frameworks_av) | Audio, media and camera framework changes | `cnb` |
+| [frameworks_av](https://github.com/PocoF3Releases/frameworks_av) | Audio and media compatibility, including opt-in Dolby AC-4 support | `cnb` |
 | [frameworks_base](https://github.com/PocoF3Releases/frameworks_base) | Android framework and SystemUI changes | `cnb` |
 | [hardware_qcom-caf_sm8250_audio](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_audio) | Qualcomm SM8250 audio HAL | `cnb` |
 | [hardware_qcom-caf_sm8250_display](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_display) | Qualcomm SM8250 display HAL | `cnb` |
@@ -49,7 +49,7 @@ Checked against the public organization inventory on **24 September 2026**: **18
 | [android_hardware_nxp_nfc](https://github.com/PocoF3Releases/android_hardware_nxp_nfc) | NXP NFC hardware support | `lineage-24.0` |
 | [system_core](https://github.com/PocoF3Releases/system_core) | Core Android system components | `aosp-17` |
 | [vendor_qcom_opensource_usb](https://github.com/PocoF3Releases/vendor_qcom_opensource_usb) | Qualcomm USB integration | `aosp-17` |
-| [system_memory_libmeminfo](https://github.com/PocoF3Releases/system_memory_libmeminfo) | Memory accounting compatibility | `alioth-dmabuf-fallback` |
+| [system_memory_libmeminfo](https://github.com/PocoF3Releases/system_memory_libmeminfo) | DMA-BUF memory accounting compatibility | `cnb` |
 
 ### Reference and organization
 
@@ -60,7 +60,9 @@ Checked against the public organization inventory on **24 September 2026**: **18
 
 ## Before integrating
 
-Check each repository's README, selected branch and recent commits. Device-specific changes may depend on matching vendor files or hardware interfaces; a repository's presence here does not mean every change applies to other devices or ROMs.
+- **Sync the complete device stack.** Device configuration, proprietary files, kernel and both camera repositories work together. The vendor camera repository supplies the ready-to-use APK; patch documentation belongs to the camera source tree.
+- **Keep hardware ownership clear.** XiaomiParts is maintained in the common device tree. `hardware/xiaomi` remains a standalone dependency for shared Xiaomi features and Dolby integration.
+- **Review compatibility options.** Read each repository's README and relevant commits before enabling device-specific behavior. Dolby and media integrations depend on the shipped components; Alioth's settings are not universal defaults for other devices.
 
 Use the **`user` build variant** for release builds. Follow your ROM's manifest for branch selection, especially where default branch names differ from the Android version.
 
