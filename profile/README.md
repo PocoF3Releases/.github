@@ -41,15 +41,21 @@ The sources below are grouped by their role in the ROM. The default branches lis
 
 | Repository | Purpose | Default branch |
 | --- | --- | --- |
-| [frameworks_av](https://github.com/PocoF3Releases/frameworks_av) | Audio and media compatibility, including opt-in Dolby AC-4 support | `cnb` |
+| [frameworks_av](https://github.com/PocoF3Releases/frameworks_av) | Legacy Dolby DAP lifecycle and Xiaomi camera compatibility | `cnb` |
 | [frameworks_base](https://github.com/PocoF3Releases/frameworks_base) | Android framework and SystemUI changes | `cnb` |
 | [hardware_qcom-caf_sm8250_audio](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_audio) | Qualcomm SM8250 audio HAL | `cnb` |
 | [hardware_qcom-caf_sm8250_display](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_display) | Qualcomm SM8250 display HAL | `cnb` |
 | [hardware_qcom-caf_sm8250_media](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_media) | Qualcomm SM8250 media components | `cnb` |
 | [android_hardware_nxp_nfc](https://github.com/PocoF3Releases/android_hardware_nxp_nfc) | NXP NFC hardware support | `lineage-24.0` |
-| [system_core](https://github.com/PocoF3Releases/system_core) | Core Android system components | `aosp-17` |
 | [vendor_qcom_opensource_usb](https://github.com/PocoF3Releases/vendor_qcom_opensource_usb) | Qualcomm USB integration | `aosp-17` |
-| [system_memory_libmeminfo](https://github.com/PocoF3Releases/system_memory_libmeminfo) | DMA-BUF memory accounting compatibility | `cnb` |
+
+Android 17 uses Evolution X upstream for `system/core` and `system/memory/libmeminfo`; the init and optional DMA-BUF fixes are included there. HBM and AC-4 support are also upstream, while the framework forks remain required for their other changes.
+
+### Optional fonts
+
+| Repository | Purpose | Branch |
+| --- | --- | --- |
+| [vendor_extras](https://github.com/PocoF3Releases/vendor_extras) | Selectable Oh My Font with SF Arabic | `aosp-17-oh-my-font` |
 
 ## Android 16 branches
 
