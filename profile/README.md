@@ -6,7 +6,7 @@
 
 Device sources and hardware integrations for **POCO F3 / Mi 11X (alioth)**, powered by Snapdragon 870. Active development targets **Evolution X / Android 17**.
 
-> **Android 16 is no longer maintained.** Existing `aosp-16` branches are kept only as historical/legacy sources and may not receive fixes, compatibility updates, or security-related backports.
+**Android 17 is the active stack.** Older sources are listed separately in the [Android 16 legacy index](../Legacy.md).
 
 **[Build updates and support on Telegram](https://t.me/PocoF3_Updates)** · **[Browse repositories](https://github.com/orgs/PocoF3Releases/repositories)**
 
@@ -38,27 +38,29 @@ The sources below are grouped by their role in the ROM. Branches shown are the c
 
 | Repository | Purpose | Branch |
 | --- | --- | --- |
-| [hardware_xiaomi](https://github.com/PocoF3Releases/hardware_xiaomi) | Shared Xiaomi hardware support and Dolby integration | `cnb` |
+| [hardware_xiaomi](https://github.com/PocoF3Releases/hardware_xiaomi) | Xiaomi interfaces, Dolby, sensors, fingerprint and stock-backed Alioth vibrator HAL | `cnb` |
 
 ### Platform and hardware compatibility
 
 | Repository | Purpose | Branch |
 | --- | --- | --- |
 | [frameworks_av](https://github.com/PocoF3Releases/frameworks_av) | Legacy Dolby DAP lifecycle and Xiaomi camera compatibility | `cnb` |
-| [frameworks_base](https://github.com/PocoF3Releases/frameworks_base) | Android framework and SystemUI changes | `cnb` |
+| [frameworks_base](https://github.com/PocoF3Releases/frameworks_base) | High-refresh recording, independent recording blur control and NFC shell compatibility | `cnb` |
 | [hardware_qcom-caf_sm8250_audio](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_audio) | Qualcomm SM8250 audio HAL | `cnb` |
 | [hardware_qcom-caf_sm8250_display](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_display) | Qualcomm SM8250 display HAL | `cnb` |
 | [hardware_qcom-caf_sm8250_media](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_media) | Qualcomm SM8250 media components | `cnb` |
-| [android_hardware_nxp_nfc](https://github.com/PocoF3Releases/android_hardware_nxp_nfc) | NXP NFC hardware support | `lineage-24.0` |
+| [android_hardware_nxp_nfc](https://github.com/PocoF3Releases/android_hardware_nxp_nfc) | NXP NFC HAL shutdown queue fix | `lineage-24.0` |
+| [external_tinycompress](https://github.com/PocoF3Releases/external_tinycompress) | Blocking compressed-capture reads expected by the legacy Qualcomm audio HAL | `lineage-24.0` |
 | [vendor_qcom_opensource_usb](https://github.com/PocoF3Releases/vendor_qcom_opensource_usb) | Qualcomm USB integration | `aosp-17` |
 
 Android 17 uses Evolution X upstream for `system/core` and `system/memory/libmeminfo`; the required init and optional DMA-BUF fixes are included upstream. HBM and AC-4 support are also upstream, while the framework forks remain required for their other device-specific changes.
 
-## Android 16 legacy branches
+## NFC: two independent fixes
 
-Android 16 development has ended. Existing `aosp-16` branches may remain available in individual repositories for reference, older builds, or comparison, but they are **not maintained or supported as the current device stack**.
+- **NXP HAL:** preserves the client queue ID during teardown so the close-complete message can be consumed. This prevents the repeated `NFC client received bad message` loop while retaining the timer lifetime fix.
+- **Framework `svc nfc`:** delegates enable/disable to the NFC service shell interface, avoiding hidden modular-framework APIs. This is command-line compatibility, not a HAL shutdown fix. Direct callers can use `cmd nfc enable-nfc` or `cmd nfc disable-nfc '[persist]'` on the integrated NFC module.
 
-For new builds and ongoing development, use the Android 17 branches above.
+Keep both patches while their respective upstream bases lack equivalent fixes. Neither is a substitute for the other; verify equivalence before dropping either during a rebase. Tinycompress similarly fixes the compressed-capture read contract, not every possible messaging-app audio issue.
 
 ## Reference and organization
 
@@ -75,7 +77,9 @@ For new builds and ongoing development, use the Android 17 branches above.
 - **Review compatibility options.** Read each repository's README and relevant commits before enabling device-specific behavior. Dolby and media integrations depend on the shipped components; Alioth's settings are not universal defaults for other devices.
 - **Treat legacy branches as archival.** Android 16 branches are retained for reference only and should not be assumed to contain current fixes.
 
-Use the **`user` build variant** for release builds. Follow your ROM's manifest for branch selection where upstream branch names differ.
+Use the **`user` build variant** for release builds. Follow your ROM's manifest for branch selection where upstream branch names differ. The tables are an integration inventory, not a pinned release manifest or proof of device validation. After `repo sync`, check that upstream checkouts still contain the required custom patches; preserve new upstream changes and omit patches already integrated there.
+
+The primary kernel branch is `aosp-17`. `aosp-17-old_base` is historical and must not replace it in a current build.
 
 ## Get involved
 
