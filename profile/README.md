@@ -55,6 +55,14 @@ The sources below are grouped by their role in the ROM. Branches shown are the c
 
 Android 17 uses Evolution X upstream for `system/core` and `system/memory/libmeminfo`; the required init and optional DMA-BUF fixes are included upstream. HBM and AC-4 support are also upstream, while the framework forks remain required for their other device-specific changes.
 
+## XiaomiParts and Dolby
+
+XiaomiParts uses compact Kotlin/Compose screens with consistent spacing, relevant choice icons and a colored circle for the selected option. MiSound includes a wordmark, scene and preset selectors, saved settings and Quick Settings controls. Native MiSound effect operations run on a dedicated worker, with recovery after the audio service restarts.
+
+Dolby follows the same settings styling, including compact game tuning and icon selectors. Translations and canonical audio product names are maintained separately from implementation changes.
+
+For exact source revisions and the limits of compilation and phone verification, consult the [source map](https://github.com/PocoF3Releases/Agents.md/blob/main/state/repositories.yaml) and [validation records](https://github.com/PocoF3Releases/Agents.md/blob/main/state/validation.md). These describe source and component checks; they do not identify a newly released ROM.
+
 ## NFC: two independent fixes
 
 - **NXP HAL:** preserves the client queue ID during teardown so the close-complete message can be consumed. This prevents the repeated `NFC client received bad message` loop while retaining the timer lifetime fix.
