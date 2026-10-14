@@ -55,6 +55,12 @@ The sources below are grouped by their role in the ROM. Branches shown are the c
 
 Android 17 uses Evolution X upstream for `system/core` and `system/memory/libmeminfo`; the required init and optional DMA-BUF fixes are included upstream. HBM and AC-4 support are also upstream, while the framework forks remain required for their other device-specific changes.
 
+## Native ROM recovery
+
+Native Android 17 recovery is maintained in [android_bootable_recovery](https://github.com/PocoF3Releases/android_bootable_recovery), with storage support in [android_system_vold](https://github.com/PocoF3Releases/android_system_vold) and recovery policy in [android_system_sepolicy](https://github.com/PocoF3Releases/android_system_sepolicy). The [local manifests](https://github.com/PocoF3Releases/local_manifests/tree/cnb) select the required build and crypto dependencies; keep these overrides together.
+
+Evolution-X and LineageOS fork relationships are retained. Additional recovery dependencies from other mirror owners are maintained as standalone repositories with their original history and tracking branches. Native ROM recovery is separate from PBRP.
+
 ## XiaomiParts and Dolby
 
 XiaomiParts uses compact Kotlin/Compose screens with consistent spacing, relevant choice icons and a colored circle for the selected option. MiSound includes a wordmark, scene and preset selectors, saved settings and Quick Settings controls. Native MiSound effect operations run on a dedicated worker, with recovery after the audio service restarts.
