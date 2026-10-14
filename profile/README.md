@@ -2,99 +2,70 @@
   <img src="https://raw.githubusercontent.com/PocoF3Releases/.github/main/profile/assets/pocof3releases-banner.webp" alt="PocoF3Releases — Android for alioth" width="100%" />
 </p>
 
-# Modern Android for POCO F3
+# Android 17 for POCO F3
 
-Device sources and hardware integrations for **POCO F3 / Mi 11X (alioth)**, powered by Snapdragon 870. Active development targets **Evolution X / Android 17**.
+**Evolution X** device sources for **POCO F3 / Mi 11X (alioth)**, Snapdragon 870.
 
-**Android 17 is the active stack.** Older sources are listed separately in the [Android 16 legacy index](../Legacy.md).
+[Telegram updates and support](https://t.me/PocoF3_Updates) · [All repositories](https://github.com/orgs/PocoF3Releases/repositories) · [Project knowledge](https://github.com/PocoF3Releases/Agents.md) · [Android 16 legacy index](../Legacy.md)
 
-**[Build updates and support on Telegram](https://t.me/PocoF3_Updates)** · **[Browse repositories](https://github.com/orgs/PocoF3Releases/repositories)**
+## Device stack
 
-## Find what you need
+Sync the complete device, vendor, kernel and camera stack. Both camera repositories are required; see the [integration guide](https://github.com/PocoF3Releases/device_xiaomi_camera#readme).
 
-- **Building a ROM?** Start with the device, vendor and kernel trees below. Keep their revisions aligned with your ROM manifest.
-- **Camera sources are required.** The device trees integrate MiuiCamera as the shipped camera replacement. Sync both `device/xiaomi/camera` and `vendor/xiaomi/camera`; follow the [camera integration guide](https://github.com/PocoF3Releases/device_xiaomi_camera#readme).
-- **Looking for Xiaomi features?** XiaomiParts lives in the shared device tree; shared hardware and Dolby support live in `hardware_xiaomi`.
-- **Investigating stock behavior?** Use `references_code` as research material, not as a ready-to-ship implementation.
-- **Working with the project knowledge base?** See [Agents.md](https://github.com/PocoF3Releases/Agents.md) for maintained project context, validation notes and integration references.
-
-## Android 17 repositories
-
-The sources below are grouped by their role in the ROM. Branches shown are the current Android 17 integration branches. Required camera prebuilts are hosted on GitLab.
-
-### Required device, camera and kernel sources
-
-| Repository | Purpose | Branch |
+| Component | Repositories | Branch |
 | --- | --- | --- |
-| [device_xiaomi_alioth](https://github.com/PocoF3Releases/device_xiaomi_alioth) | POCO F3 / Mi 11X device configuration | `aosp-17` |
-| [device_xiaomi_sm8250-common](https://github.com/PocoF3Releases/device_xiaomi_sm8250-common) | Shared device configuration, XiaomiParts and services | `aosp-17` |
-| [vendor_xiaomi_alioth](https://github.com/PocoF3Releases/vendor_xiaomi_alioth) | Device-specific proprietary files | `aosp-17` |
-| [vendor_xiaomi_sm8250-common](https://github.com/PocoF3Releases/vendor_xiaomi_sm8250-common) | Shared proprietary files | `aosp-17` |
-| [kernel_xiaomi_sm8250](https://github.com/PocoF3Releases/kernel_xiaomi_sm8250) | Redline kernel for alioth | `aosp-17` |
-| [device_xiaomi_camera](https://github.com/PocoF3Releases/device_xiaomi_camera) | MiuiCamera integration, compatibility shims and extraction tools | `aosp-17` |
-| [vendor_xiaomi_camera (GitLab)](https://gitlab.com/johnmart19/vendor_xiaomi_camera) | Required ready-to-use MiuiCamera APK and proprietary files | `aosp-17` |
+| Device | [alioth](https://github.com/PocoF3Releases/device_xiaomi_alioth) · [sm8250-common](https://github.com/PocoF3Releases/device_xiaomi_sm8250-common) | `aosp-17` |
+| Proprietary files | [alioth](https://github.com/PocoF3Releases/vendor_xiaomi_alioth) · [sm8250-common](https://github.com/PocoF3Releases/vendor_xiaomi_sm8250-common) | `aosp-17` |
+| Kernel | [Redline SM8250](https://github.com/PocoF3Releases/kernel_xiaomi_sm8250) | `aosp-17` |
+| Camera | [integration](https://github.com/PocoF3Releases/device_xiaomi_camera) · [prebuilts (GitLab)](https://gitlab.com/johnmart19/vendor_xiaomi_camera) | `aosp-17` |
 
-### Shared Xiaomi features
+## ROM integrations
 
-| Repository | Purpose | Branch |
+| Component | Repositories | Branch |
 | --- | --- | --- |
-| [hardware_xiaomi](https://github.com/PocoF3Releases/hardware_xiaomi) | Xiaomi interfaces, Dolby, sensors, fingerprint and stock-backed Alioth vibrator HAL | `cnb` |
+| Xiaomi HALs and Dolby | [hardware_xiaomi](https://github.com/PocoF3Releases/hardware_xiaomi) | `cnb` |
+| Frameworks | [base](https://github.com/PocoF3Releases/frameworks_base) · [av](https://github.com/PocoF3Releases/frameworks_av) | `cnb` |
+| Qualcomm SM8250 | [audio](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_audio) · [display](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_display) · [media](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_media) | `cnb` |
+| NFC HAL | [NXP NFC](https://github.com/PocoF3Releases/android_hardware_nxp_nfc) | `lineage-24.0` |
+| Compressed audio | [tinycompress](https://github.com/PocoF3Releases/external_tinycompress) | `lineage-24.0` |
+| USB | [Qualcomm USB](https://github.com/PocoF3Releases/vendor_qcom_opensource_usb) | `aosp-17` |
 
-### Platform and hardware compatibility
-
-| Repository | Purpose | Branch |
-| --- | --- | --- |
-| [frameworks_av](https://github.com/PocoF3Releases/frameworks_av) | Legacy Dolby DAP lifecycle and Xiaomi camera compatibility | `cnb` |
-| [frameworks_base](https://github.com/PocoF3Releases/frameworks_base) | High-refresh recording, independent recording blur control and NFC shell compatibility | `cnb` |
-| [hardware_qcom-caf_sm8250_audio](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_audio) | Qualcomm SM8250 audio HAL | `cnb` |
-| [hardware_qcom-caf_sm8250_display](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_display) | Qualcomm SM8250 display HAL | `cnb` |
-| [hardware_qcom-caf_sm8250_media](https://github.com/PocoF3Releases/hardware_qcom-caf_sm8250_media) | Qualcomm SM8250 media components | `cnb` |
-| [android_hardware_nxp_nfc](https://github.com/PocoF3Releases/android_hardware_nxp_nfc) | NXP NFC HAL shutdown queue fix | `lineage-24.0` |
-| [external_tinycompress](https://github.com/PocoF3Releases/external_tinycompress) | Blocking compressed-capture reads expected by the legacy Qualcomm audio HAL | `lineage-24.0` |
-| [vendor_qcom_opensource_usb](https://github.com/PocoF3Releases/vendor_qcom_opensource_usb) | Qualcomm USB integration | `aosp-17` |
-
-Android 17 uses Evolution X upstream for `system/core` and `system/memory/libmeminfo`; the required init and optional DMA-BUF fixes are included upstream. HBM and AC-4 support are also upstream, while the framework forks remain required for their other device-specific changes.
+XiaomiParts lives in the shared device tree: compact Compose controls, MiSound presets/scenes and Quick Settings. Dolby follows the same styling. The NXP HAL teardown and framework NFC shell fixes are independent; keep both while upstream lacks equivalents. Evolution X upstream supplies `system/core`, `libmeminfo`, HBM and AC-4 support.
 
 ## Native ROM recovery
 
-Native Android 17 recovery is maintained in [android_bootable_recovery](https://github.com/PocoF3Releases/android_bootable_recovery), with storage support in [android_system_vold](https://github.com/PocoF3Releases/android_system_vold) and recovery policy in [android_system_sepolicy](https://github.com/PocoF3Releases/android_system_sepolicy). The [local manifests](https://github.com/PocoF3Releases/local_manifests/tree/cnb) select the required build and crypto dependencies; keep these overrides together.
+These repositories use **`cnb`**. Sync the [local manifests](https://github.com/PocoF3Releases/local_manifests/tree/cnb) to include their build and crypto dependencies. Native ROM recovery is separate from PBRP.
 
-Evolution-X and LineageOS fork relationships are retained. Additional recovery dependencies from other mirror owners are maintained as standalone repositories with their original history and tracking branches. Native ROM recovery is separate from PBRP.
+| Role | Repository |
+| --- | --- |
+| Recovery UI and installation | [android_bootable_recovery](https://github.com/PocoF3Releases/android_bootable_recovery) |
+| Storage decryption | [android_system_vold](https://github.com/PocoF3Releases/android_system_vold) |
+| SELinux policy | [android_system_sepolicy](https://github.com/PocoF3Releases/android_system_sepolicy) |
+| Build integration | [android_build](https://github.com/PocoF3Releases/android_build) |
 
-## XiaomiParts and Dolby
+<details>
+<summary>Recovery dependency repositories — cnb</summary>
 
-XiaomiParts uses compact Kotlin/Compose screens with consistent spacing, relevant choice icons and a colored circle for the selected option. MiSound includes a wordmark, scene and preset selectors, saved settings and Quick Settings controls. Native MiSound effect operations run on a dedicated worker, with recovery after the audio service restarts.
+| Role | Repositories |
+| --- | --- |
+| Keystore | [security](https://github.com/PocoF3Releases/android_system_security) |
+| Vendor policy | [legacy-um](https://github.com/PocoF3Releases/android_device_qcom_sepolicy_vndr_legacy-um) |
+| HAL interfaces | [hardware/interfaces](https://github.com/PocoF3Releases/android_hardware_interfaces) · [system/hardware/interfaces](https://github.com/PocoF3Releases/android_system_hardware_interfaces) |
+| HIDL and VINTF | [hwservicemanager](https://github.com/PocoF3Releases/android_system_hwservicemanager) · [libhidl](https://github.com/PocoF3Releases/android_system_libhidl) · [libvintf](https://github.com/PocoF3Releases/android_system_libvintf) |
+| Crypto | [keymaster](https://github.com/PocoF3Releases/android_system_keymaster) · [libcppbor](https://github.com/PocoF3Releases/android_system_libcppbor) · [BoringSSL](https://github.com/PocoF3Releases/android_external_boringssl) |
+| Rust | [Android crates](https://github.com/PocoF3Releases/android_external_rust_android-crates-io) · [cxx](https://github.com/PocoF3Releases/android_external_rust_cxx) · [librustutils](https://github.com/PocoF3Releases/android_system_librustutils) |
+| Data and logging | [SQLite](https://github.com/PocoF3Releases/android_external_sqlite) · [libselinux](https://github.com/PocoF3Releases/android_external_selinux) · [logging](https://github.com/PocoF3Releases/android_system_logging) |
+| Platform libraries | [APEX](https://github.com/PocoF3Releases/android_system_apex) · [incfs](https://github.com/PocoF3Releases/android_system_incremental_delivery) · [flags](https://github.com/PocoF3Releases/android_system_server_configurable_flags) · [AIDL](https://github.com/PocoF3Releases/android_system_tools_aidl) · [libhardware_legacy](https://github.com/PocoF3Releases/android_hardware_libhardware_legacy) |
+| Filesystem tools | [extras](https://github.com/PocoF3Releases/android_system_extras) · [NTFS](https://github.com/PocoF3Releases/android_external_ntfs-3g) · [bzip2](https://github.com/PocoF3Releases/android_external_bzip2) |
 
-Dolby follows the same settings styling, including compact game tuning and icon selectors. Translations and canonical audio product names are maintained separately from implementation changes.
+The common device tree and `frameworks_base` are also shared recovery dependencies. Evolution-X and LineageOS forks retain their upstream relationships; dependencies from other mirror owners are standalone repositories with their original history.
 
-For exact source revisions and the limits of compilation and phone verification, consult the [source map](https://github.com/PocoF3Releases/Agents.md/blob/main/state/repositories.yaml) and [validation records](https://github.com/PocoF3Releases/Agents.md/blob/main/state/validation.md). These describe source and component checks; they do not identify a newly released ROM.
+</details>
 
-## NFC: two independent fixes
+## Build and verification
 
-- **NXP HAL:** preserves the client queue ID during teardown so the close-complete message can be consumed. This prevents the repeated `NFC client received bad message` loop while retaining the timer lifetime fix.
-- **Framework `svc nfc`:** delegates enable/disable to the NFC service shell interface, avoiding hidden modular-framework APIs. This is command-line compatibility, not a HAL shutdown fix. Direct callers can use `cmd nfc enable-nfc` or `cmd nfc disable-nfc '[persist]'` on the integrated NFC module.
+Use the **`user`** build variant and the manifest's branch selection. `aosp-17-old_base` and Android 16 branches are historical. After syncing, check that required patches remain and omit equivalent changes already integrated upstream.
 
-Keep both patches while their respective upstream bases lack equivalent fixes. Neither is a substitute for the other; verify equivalence before dropping either during a rebase. Tinycompress similarly fixes the compressed-capture read contract, not every possible messaging-app audio issue.
+[Exact source revisions](https://github.com/PocoF3Releases/Agents.md/blob/main/state/repositories.yaml) · [Validation scope](https://github.com/PocoF3Releases/Agents.md/blob/main/state/validation.md)
 
-## Reference and organization
-
-| Repository | Purpose | Branch |
-| --- | --- | --- |
-| [references_code](https://github.com/PocoF3Releases/references_code) | Stock-derived reference material for research and behavior comparison | `android13-miui14-cn_beta` |
-| [Agents.md](https://github.com/PocoF3Releases/Agents.md) | Project knowledge base, integration notes, validation records and workflow documentation | `main` |
-| [.github](https://github.com/PocoF3Releases/.github) | Organization profile and shared profile assets | `main` |
-
-## Before integrating
-
-- **Sync the complete device stack.** Device configuration, proprietary files, kernel and both camera repositories work together. The vendor camera repository supplies the ready-to-use APK; patch documentation belongs to the camera source tree.
-- **Keep hardware ownership clear.** XiaomiParts is maintained in the common device tree. `hardware/xiaomi` remains a standalone dependency for shared Xiaomi features and Dolby integration.
-- **Review compatibility options.** Read each repository's README and relevant commits before enabling device-specific behavior. Dolby and media integrations depend on the shipped components; Alioth's settings are not universal defaults for other devices.
-- **Treat legacy branches as archival.** Android 16 branches are retained for reference only and should not be assumed to contain current fixes.
-
-Use the **`user` build variant** for release builds. Follow your ROM's manifest for branch selection where upstream branch names differ. The tables are an integration inventory, not a pinned release manifest or proof of device validation. After `repo sync`, check that upstream checkouts still contain the required custom patches; preserve new upstream changes and omit patches already integrated there.
-
-The primary kernel branch is `aosp-17`. `aosp-17-old_base` is historical and must not replace it in a current build.
-
-## Get involved
-
-Report problems with your build date, steps to reproduce and relevant logs in [Telegram support](https://t.me/PocoF3_Updates). For source changes, use the relevant repository so the implementation and discussion stay together.
+This inventory is not a pinned release manifest. For stock-behavior research, use [references_code](https://github.com/PocoF3Releases/references_code/tree/android13-miui14-cn_beta). Report issues with the build date, reproduction steps and relevant logs through Telegram.
