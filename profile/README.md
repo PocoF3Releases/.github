@@ -6,7 +6,7 @@
 
 **Evolution X** device sources for **POCO F3 / Mi 11X (alioth)**, Snapdragon 870.
 
-[Telegram updates and support](https://t.me/PocoF3_Updates) · [All repositories](https://github.com/orgs/PocoF3Releases/repositories) · [Project knowledge](https://github.com/PocoF3Releases/Agents.md) · [Android 16 legacy index](../Legacy.md)
+[Telegram updates and support](https://t.me/PocoF3_Updates) · [All repositories](https://github.com/orgs/PocoF3Releases/repositories) · [Project knowledge](https://github.com/PocoF3Releases/Agents.md)
 
 ## Device stack
 
@@ -38,7 +38,7 @@ Recovery sources, decryption dependencies and build integration are maintained s
 
 ## Build and verification
 
-Use the **`user`** build variant and the manifest's branch selection. `aosp-17-old_base` and Android 16 branches are historical. After syncing, check that required patches remain and omit equivalent changes already integrated upstream.
+Use the **`user`** build variant and the manifest's branch selection. After syncing, check that required patches remain and omit equivalent changes already integrated upstream.
 
 [Exact source revisions](https://github.com/PocoF3Releases/Agents.md/blob/main/state/repositories.yaml) · [Validation scope](https://github.com/PocoF3Releases/Agents.md/blob/main/state/validation.md)
 
