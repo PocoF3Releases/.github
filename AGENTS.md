@@ -10,4 +10,4 @@ Scope: this repository contains the public organization profile and shared asset
 - Source availability, successful compilation, device tests and user confirmation are different evidence. Do not describe an inventory as a validated release manifest.
 - Keep the profile concise, with relative links to local Markdown files. Do not add update dates, daily status logs, private workstation paths, credentials or personal details. Public proprietary-repository references are allowed.
 - Check Markdown links, table consistency and `git diff --check` locally. Do not add GitHub Actions.
-- Preserve attribution. Agent-assisted commits include `Co-authored-by: codex <noreply@openai.com>`.
+- Preserve attribution. Codex-assisted commits include exactly one `Assisted-by: LLM - GPT-6.1 Sol Max` trailer; preserve actual human authors and trailers.
